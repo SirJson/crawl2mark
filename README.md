@@ -1,18 +1,18 @@
 # crawl2mark
 
-This is a hacked together solution for fetching a webpage and create a readable markdown file from it.
+This is a hacked together solution for fetching a webpage and creating a readable markdown file from it.
 
-Basically what this group of scripts are doing is:
+Basically what those scripts are doing is:
 
-- First compile a markdown friendly CSS from SCSS
+- First compile a markdown friendly CSS file from SCSS (Shoutout to [sakura.css](https://github.com/oxalorg/sakura))
 
-- Navigate to the desired target via Chrome and Puppeteer.
+- Navigate to the desired target via Headless Chrome and [Puppeteer](https://github.com/puppeteer/puppeteer).
 
-- Inject [Readability.js]() into it and execute some init code. It will transform the DOM into something Firefox would do in "reader mode".
+- Inject [Readability.js](https://github.com/mozilla/readability) into it and execute some more js code. It will transform the DOM into something Firefox would do in "reader mode".
 
-- Wait for a console event that will be a tagged JSON object with the results of Readability.js
+- Wait for a console event that contains a tagged JSON object with the results of Readability.js
 
-- Render the content with a mustache template into a temporary folder
+- Use a mustache template and the received content to render a HTML file into a temporary folder
 
 - Run the tool "prettier" after all HTML is written
 
@@ -20,7 +20,9 @@ Basically what this group of scripts are doing is:
 
 Not a elegant solution but it works.
 
-The biggest downside is that I don't know if you could even package this random collection of scripts into something that can just run without installing developer tools. If you know a way how to do something like this let me know
+The biggest downside is that I don't know if you could even package this random collection of scripts into something that can just run without installing a bunch of developer dependencies. 
+
+If you know a way how to do something like this let me know
 
 ## Usage
 
@@ -32,4 +34,4 @@ After installing all dependencies run this shell script to start converting a pa
 ./crawl2mark.sh https://example.com
 ```
 
-and enjoy your gitlab flavoured markdown document :)
+and enjoy your Github flavoured Markdown :)
