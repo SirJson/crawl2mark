@@ -1,0 +1,22 @@
+$color-blossom: #4a69bd;
+$color-fade: #b71540;
+
+$color-bg: #ffffff;
+$color-bg-alt: #f8f8f8;
+
+$color-text: #34495e;
+$font-size-base: 1.8rem;
+
+$font-family-sans-serif: Source Sans Pro, Helvetica Neue, Calibri, Roboto, Arial,
+    sans-serif;
+$font-family-serif: $font-family-sans-serif;
+
+@import "./sakura/_main";
+
+body {
+    max-width: 60em !important;
+}
+
+img {
+    height: auto !important;
+}
