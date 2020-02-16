@@ -23,7 +23,7 @@ function onConsoleMesssge(msg: ConsoleMessage, ...args: any[]) {
                     content: packet["data"]["content"],
                 });
                 const whitespaces: RegExp = /\s/gm;
-                const badchars: RegExp = /\:|\,|\?|\&|\=/gm;
+                const badchars: RegExp = /\:|\,|\?|\&|\=|\|/gm;
                 FILENAME = title
                     .replace(badchars, "")
                     .replace(whitespaces, "-");
