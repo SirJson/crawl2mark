@@ -6,7 +6,7 @@ import mustache from "mustache";
 const URL = process.argv[process.argv.length - 1];
 let FILENAME = "unknown.html";
 
-mustache.escape = function(text: string) {
+mustache.escape = function (text: string) {
     return text;
 };
 
@@ -34,7 +34,7 @@ function onConsoleMesssge(msg: ConsoleMessage, ...args: any[]) {
                 fs.writeFileSync(`render/${FILENAME}.html`, output);
             }
         }
-    } catch {}
+    } catch { }
 }
 
 async function main() {
@@ -50,9 +50,11 @@ async function main() {
         isMobile: false,
     });
     page.on("console", onConsoleMesssge);
+    page.setDefaultTimeout(0);
+    page.setDefaultNavigationTimeout(0);
     await page.evaluateOnNewDocument(lib_readability);
     await page.goto(URL, {
-        waitUntil: "networkidle2",
+        waitUntil: "load",
     });
     await page.evaluate(executer);
     await browser.close();
