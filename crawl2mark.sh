@@ -10,8 +10,6 @@ TEMPDIR=$(mktemp -d)
 CSD=$(dirname "$(readlink -f "$0")")
 mkdir -p "$CSD/render"
 mkdir -p "$CSD/output"
-echo "Prepare base css..."
-gulp
 echo "Render page..."
 OUTHTML=$(ts-node "$CSD/src/app.ts" "$URL")
 if [[ $? -gt 0 ]]; then

@@ -11,6 +11,7 @@ mustache.escape = function (text: string) {
 };
 
 const template = fs.readFileSync("html/template.html", "utf8");
+const style = fs.readFileSync("html/site.css","utf8");
 
 function onConsoleMesssge(msg: ConsoleMessage, ...args: any[]) {
     try {
@@ -23,7 +24,7 @@ function onConsoleMesssge(msg: ConsoleMessage, ...args: any[]) {
                     content: packet["data"]["content"],
                 });
                 const whitespaces: RegExp = /\s/gm;
-                const badchars: RegExp = /\:|\,|\?|\&|\=|\|/gm;
+                const badchars: RegExp = /\:|\,|\?|\&|\'|\=|\|/gm;
                 FILENAME = title
                     .replace(badchars, "")
                     .replace(whitespaces, "-");
@@ -32,6 +33,7 @@ function onConsoleMesssge(msg: ConsoleMessage, ...args: any[]) {
                 }
 
                 fs.writeFileSync(`render/${FILENAME}.html`, output);
+                fs.writeFileSync(`render/style.css`, style)
             }
         }
     } catch { }

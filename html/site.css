@@ -1,0 +1,234 @@
+/* Sakura.css v1.0.0 */
+
+/* Plus some modifications mainly linting */
+
+/* Body */
+html {
+    font-size: 62.5%;
+    font-family: "Source Sans Pro", "Helvetica Neue", "Calibri", "Roboto", "Arial", sans-serif;
+}
+
+body {
+    font-size: 1.8rem;
+    line-height: 1.618;
+    max-width: 60em !important;
+    margin: auto;
+    color: #34495e;
+    background-color: #fff;
+    padding: 13px;
+}
+
+@media (max-width: 684px) {
+    body {
+        font-size: 1.53rem;
+    }
+}
+
+@media (max-width: 382px) {
+    body {
+        font-size: 1.35rem;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.1;
+    font-family: "Source Sans Pro", "Helvetica Neue", "Calibri", "Roboto", "Arial", sans-serif;
+    font-weight: 700;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+h1 {
+    font-size: 2.35em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.75em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+h5 {
+    font-size: 1.25em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
+small,
+sub,
+sup {
+    font-size: 75%;
+}
+
+hr {
+    border-color: #4a69bd;
+}
+
+a {
+    text-decoration: none;
+    color: #4a69bd;
+}
+
+a:hover {
+    color: #b71540;
+    border-bottom: 2px solid #34495e;
+}
+
+ul {
+    padding-left: 1.4em;
+}
+
+li {
+    margin-bottom: 0.4em;
+}
+
+blockquote {
+    font-style: italic;
+    margin-left: 1.5em;
+    padding-left: 1em;
+    border-left: 3px solid #4a69bd;
+}
+
+img {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* Pre and Code */
+pre {
+    background-color: #f8f8f8;
+    display: block;
+    padding: 1em;
+    overflow-x: auto;
+}
+
+code {
+    font-size: 0.9em;
+    padding: 0 0.5em;
+    background-color: #f8f8f8;
+    white-space: pre-wrap;
+}
+
+pre > code {
+    padding: 0;
+    background-color: transparent;
+    white-space: pre;
+}
+
+/* Tables */
+table {
+    text-align: justify;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    padding: 0.5em;
+    border-bottom: 1px solid #f8f8f8;
+}
+
+/* Buttons, forms and input */
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    display: inline-block;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: #4a69bd;
+    color: #fff;
+    border-radius: 1px;
+    border: 1px solid #4a69bd;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.button[disabled],
+button[disabled],
+input[type="submit"][disabled],
+input[type="reset"][disabled],
+input[type="button"][disabled] {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.button:focus,
+.button:hover,
+button:focus,
+button:hover,
+input[type="submit"]:focus,
+input[type="submit"]:hover,
+input[type="reset"]:focus,
+input[type="reset"]:hover,
+input[type="button"]:focus,
+input[type="button"]:hover {
+    background-color: #b71540;
+    border-color: #b71540;
+    color: #fff;
+    outline: 0;
+}
+
+input,
+textarea {
+    border: 1px solid #34495e;
+}
+
+textarea,
+select,
+input[type] {
+    color: #34495e;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #f8f8f8;
+    border-radius: 4px;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border: 1px solid #4a69bd;
+}
+
+textarea:focus,
+select:focus,
+input[type]:focus {
+    border: 1px solid #4a69bd;
+    outline: 0;
+}
+
+input[type="checkbox"]:focus {
+    outline: 1px dotted #4a69bd;
+}
+
+label,
+legend,
+fieldset {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
