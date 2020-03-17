@@ -10,7 +10,7 @@ ORIGIN="$PWD"
 
 cd "$DIR" || exit 1
 
-if [[ ! -d "node_modules" ]]; then
+if [[ ! -d "$DIR/node_modules" ]]; then
     npm install
 fi
 
@@ -26,6 +26,7 @@ if [[ $? -gt 0 ]]; then
     exit 1
 fi
 echo "Improve html output..."
+# TODO: Figure out if we need this
 npx prettier --write "$OUTHTML" 2>/dev/null
 DOCNAME=$(basename "$OUTHTML")
 DOCNAME="${DOCNAME%.*}.md"
