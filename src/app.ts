@@ -71,7 +71,6 @@ async function main() {
 
 try {
     URI = new URL(process.argv[process.argv.length - 1]);
-    console.info(`Converting ${URI.href} to markdown`);
     main()
         .then(() => {
             console.log(`render/${FILENAME}.html`);
@@ -83,7 +82,7 @@ try {
 
 }
 catch (error) {
-    console.error(ansi.BgWhite,ansi.Bright,ansi.FgRed,`[!!] crawl2mark failed. Did you forget to set the target url?`,ansi.Reset)
+    console.error(ansi.BgWhite, ansi.Bright, ansi.FgRed, `[!!] crawl2mark failed. Did you forget to set the target url?`, ansi.Reset);
     console.error(error);
     process.exit(1);
 }

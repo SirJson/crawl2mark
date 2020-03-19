@@ -1,0 +1,18 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PowerShell: Launch Script",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "${workspaceFolder}/crawl2mark.ps1",
+            "args": [
+                "https://blog.thewalr.us/2019/03/27/using-esp8266-as-an-iot-endpoint-with-encrypted-mqtt-transport/",
+            ],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
