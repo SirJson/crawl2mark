@@ -4,7 +4,9 @@ This is a hacked together solution for fetching a webpage and creating a readabl
 
 Basically what those scripts are doing is:
 
-- First compile a markdown friendly CSS file from SCSS (Shoutout to [sakura.css](https://github.com/oxalorg/sakura))
+~~- First compile a markdown friendly CSS file from SCSS (Shoutout to [sakura.css](https://github.com/oxalorg/sakura))~~
+
+**NEW**: Already included. No gulp dependency required.
 
 - Navigate to the desired target via Headless Chrome and [Puppeteer](https://github.com/puppeteer/puppeteer).
 
