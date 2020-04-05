@@ -1,22 +1,21 @@
 {
-  "name": "crawl2mark",
-  "version": "1.0.0",
-  "main": "src/app.ts",
+  "name": "web2mark",
+  "version": "2.0.0",
+  "main": "src/w2m.ts",
   "author": "SirJson",
   "license": "MIT",
   "dependencies": {
+    "@types/chalk": "^2.2.0",
     "@types/mustache": "^4.0.0",
     "@types/node": "^13.7.1",
     "@types/puppeteer": "^2.0.0",
+    "chalk": "^4.0.0",
     "mustache": "^4.0.0",
-    "nodemon": "^2.0.2",
-    "prettier": "^1.19.1",
     "puppeteer": "^2.1.1",
-    "sass": "^1.25.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5"
   },
   "scripts": {
-    "start": "ts-node src/app.ts"
+    "start": "ts-node src/w2m.ts"
   }
 }
