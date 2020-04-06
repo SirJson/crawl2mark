@@ -33,6 +33,7 @@ const payload = `var article = new Readability(document).parse(), package = { ma
 const renderState = new RenderEvent();
 const payloadTag = "C2MBEGIN;";
 let pageTitle = "Unknown";
+let targetPath: string = '';
 
 mustache.escape = function (text: string) {
     return text;
@@ -116,9 +117,9 @@ function onConsoleMesssge(msg: ConsoleMessage, ...args: any[]) {
 
 function renderHTML(pathname: string) {
     const mddoc = path.basename(pathname.replace(path.extname(pathname), ".md"));
-    const mdpath = path.join(process.cwd(), mddoc);
+    const mdpath = path.join(path.resolve(targetPath), mddoc);
     console.info(`Generating markdown file to '${mdpath}' from source '${pathname}'`);
-    const pandoc: ChildProcess = spawn('pandoc', ['-r', 'html-native_divs-native_spans', '-t', 'gfm+pipe_tables+fenced_code_blocks+gfm_auto_identifiers+backtick_code_blocks+autolink_bare_uris+space_in_atx_header+intraword_underscores+strikeout+emoji+shortcut_reference_links+lists_without_preceding_blankline', '--wrap=none', '--strip-comments', '--atx-headers', '--quiet', '-s', pathname, '-o', mddoc]);
+    const pandoc: ChildProcess = spawn('pandoc', ['-r', 'html-native_divs-native_spans', '-t', 'gfm+pipe_tables+fenced_code_blocks+gfm_auto_identifiers+backtick_code_blocks+autolink_bare_uris+space_in_atx_header+intraword_underscores+strikeout+emoji+shortcut_reference_links+lists_without_preceding_blankline', '--wrap=none', '--strip-comments', '--atx-headers', '--quiet', '-s', pathname, '-o', mdpath]);
     if (!pandoc) {
         console.error("Failed to launch pandoc!");
         process.exit(1);
@@ -166,11 +167,13 @@ async function webToMarkdown(url: URL) {
 
 try {
     patchConsole();
-    if (process.argv.length <= 1) {
+    if (process.argv.length <= 2) {
         console.error("Not enough arguments. Please use the runner script!");
         process.exit(1);
     }
-    const url = new URL(process.argv[process.argv.length - 1]);
+    targetPath = process.argv[process.argv.length - 1];
+    console.info(`Writing to ${targetPath}`);
+    const url = new URL(process.argv[process.argv.length - 2]);
     webToMarkdown(url)
         .then(() => {
             console.info(`Successfully converted ${url.href} to markdown!`);
