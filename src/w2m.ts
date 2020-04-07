@@ -107,7 +107,7 @@ function onConsoleMesssge(msg: ConsoleMessage, ...args: any[]) {
             }
         }
         else {
-            console.log(msg.text());
+            console.log(`<WEBCON> ${msg.text()}`);
         }
     } catch (ex) {
         console.error("Error in RPC", ex);
