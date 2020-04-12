@@ -140,7 +140,7 @@ function waitToRender(): Promise<void> {
 
 async function webToMarkdown(url: URL) {
     console.info(`Loading readability.js`);
-    const libReadability = fs.readFileSync(path.resolve(__dirname,"readability.js"), "utf8");
+    const libReadability = fs.readFileSync(path.resolve(__dirname, "readability.js"), "utf8");
     console.info(`Starting puppeteer `);
     const browser = await puppeteer.launch();
     console.info(`Puppeteer setup...`);
@@ -157,9 +157,10 @@ async function webToMarkdown(url: URL) {
     await page.evaluateOnNewDocument(libReadability);
     console.info(`Connecting to ${url.href}`);
     await page.goto(url.href, {
-        waitUntil: "load",
+        waitUntil: "networkidle2",
     });
     pageTitle = await page.title();
+    console.debug(`Page Title is ${pageTitle}`);
     console.info(`Execute payload...`);
     await page.evaluate(payload);
     await waitToRender();
