@@ -1,5 +1,9 @@
 # crawl2mark
 
+NOTE: This project got replaced with MagicMark which resembles more of a useable application. This repository never grew out of the just a bunch of undocumented scripts phase.
+
+----
+
 This is a hacked together solution for fetching a webpage and creating a readable markdown file from it.
 
 Basically what those scripts are doing is:
